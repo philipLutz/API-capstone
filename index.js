@@ -1,17 +1,29 @@
-function getDataFromWU() {
-	const apiCall = 'http://api.wunderground.com/api/5e8b8ca34238674d/conditions/q/CA/San_Francisco.json'
-	$.getJSON()
+function getDataFromWU(queryCity, querySC) {
+	$.ajax({
+		url: `http://api.wunderground.com/api/5e8b8ca34238674d/conditions/q/${querySC}/${queryCity}.json`,
+		dataType: 'json',
+		success: function(url) {
+			console.log(url);
+			displayWeather(url);
+		}
+	});
 }
 
 function getDataFromIG() {
 
 }
 
-function renderWeather() {}
+function renderWeather() {
+}
 
 function renderPosts() {}
 
-function displayWeather() {}
+function displayWeather(url) {
+	const tempRaw = Object.values(url.current_observation.temperature_string);
+	const tempString = tempRaw.toString();
+	const temp = tempString.replace(/,\s?/g, "");
+	$('.weather-content').html(`<section>${temp}</section>`);
+}
 
 function displayPosts() {}
 

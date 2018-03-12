@@ -9,7 +9,35 @@ function getDataFromWU(queryCity, querySC) {
 	});
 }
 
+function getLocationGoogle(queryCity, querySC) {
+	const key = 'AIzaSyBVxNqgsyP40WcRQlRW8D4HYyUQFF3D3dc';
+	$.ajax({
+		url: `https://maps.googleapis.com/maps/api/geocode/json?address=${queryCity},+${querySC}&key=${key}`,
+		dataType: 'json',
+		success: function(results) {
+			console.log(results);
+			renderLocationGoogle(results);
+		}
+	})
+}
+
+function renderLocationGoogle(results) {
+	const array = Object.values(results);
+	const object = array[0];
+	const object2 = Object.values(object);
+	const latLocation = (object2[0]['geometry']['location']['lat']);
+	const longLocation = (object2[0]['geometry']['location']['lng']);
+	console.log(longLocation);
+	console.log(latLocation);
+}
+
 function getDataFromIG() {
+	/*const token = '1698192658.617c526.1b3e8fe22304433cae29ab1561cc4438';
+	const location = 
+	$.ajax({
+		url: 
+	})*/
+
 
 }
 
@@ -44,6 +72,7 @@ function watchSubmit() {
 		getDataFromWU(queryCity, querySC, displayWeather);
 		getDataFromIG(queryCity, querySC, displayPosts);
 		createSearchLocation(queryCity, querySC);
+		getLocationGoogle(queryCity, querySC);
 	});
 }
 

@@ -75,9 +75,18 @@ function createColor(longRound, latRound) {
 	const longNum = (correctSignLong(longRound));
 	const latNum = (correctSignLat(latRound));
 	const randomNum = (getRandomInt(0, 256));
-	console.log(longNum);
-	console.log(latNum);
-	console.log(randomNum);
+	const colorRGB = `rgb(${latNum},${longNum},${randomNum})`;
+	getColorScheme(colorRGB);
+}
+
+function getColorScheme(colorRGB) {
+	$.ajax({
+		url: `http://thecolorapi.com/scheme?rgb=${colorRGB}&mode=analogic&count=6`,
+		dataType: 'jsonp',
+		success: function(scheme) {
+			console.log(scheme);
+		}
+	})
 }
 
 function watchSubmit() {

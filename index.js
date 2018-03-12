@@ -27,24 +27,13 @@ function renderLocationGoogle(results) {
 	const object2 = Object.values(object);
 	const latLocation = (object2[0]['geometry']['location']['lat']);
 	const longLocation = (object2[0]['geometry']['location']['lng']);
-	console.log(longLocation);
-	console.log(latLocation);
-}
-
-function getDataFromIG() {
-	/*const token = '1698192658.617c526.1b3e8fe22304433cae29ab1561cc4438';
-	const location = 
-	$.ajax({
-		url: 
-	})*/
-
-
+	const latRound = Math.round(latLocation);
+	const longRound = Math.round(longLocation);
+	createColor(longRound, latRound);
 }
 
 function renderWeather() {
 }
-
-function renderPosts() {}
 
 function displayWeather(url) {
 	const tempRaw = Object.values(url.current_observation.temperature_string);
@@ -53,11 +42,42 @@ function displayWeather(url) {
 	$('.weather-content').html(`<section>${temp}</section>`);
 }
 
-function displayPosts() {}
-
 function createSearchLocation(queryCity, querySC) {
 	const location = `${queryCity}, ${querySC}`;
 	$('.search-location').html(`<div>${location}</div>`);
+}
+
+function createColor(longRound, latRound) {
+	function correctSignLong(longRound) {
+		if (Math.sign(longRound) === -1) {
+			return -longRound;
+		}
+		else {
+			return longRound;
+		}
+	}
+
+	function correctSignLat(latRound) {
+		if (Math.sign(latRound) === -1) {
+			return -latRound;
+		}
+		else {
+			return latRound;
+		}
+	}
+
+	function getRandomInt(min, max) {
+  		min = Math.ceil(min);
+  		max = Math.floor(max);
+  		return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+	}
+
+	const longNum = (correctSignLong(longRound));
+	const latNum = (correctSignLat(latRound));
+	const randomNum = (getRandomInt(0, 256));
+	console.log(longNum);
+	console.log(latNum);
+	console.log(randomNum);
 }
 
 function watchSubmit() {
@@ -70,7 +90,6 @@ function watchSubmit() {
 		const querySC = queryTargetSC.val();
 		queryTargetSC.val("");
 		getDataFromWU(queryCity, querySC, displayWeather);
-		getDataFromIG(queryCity, querySC, displayPosts);
 		createSearchLocation(queryCity, querySC);
 		getLocationGoogle(queryCity, querySC);
 	});

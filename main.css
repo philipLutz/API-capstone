@@ -71,7 +71,7 @@ header {
 	background-color: black;
 }
 
-@media only screen and (min-width: 640px) {
+@media only screen and (min-width: 770px) {
 	.col-2 {
 		width: 16%;
 	}

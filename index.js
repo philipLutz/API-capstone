@@ -75,6 +75,7 @@ function createColor(longRound, latRound) {
 	const longNum = (correctSignLong(longRound));
 	const latNum = (correctSignLat(latRound));
 	const randomNum = (getRandomInt(0, 256));
+	//I could make this more random by making the placement of the numbers in the RGB random
 	const colorRGB = `rgb(${latNum},${longNum},${randomNum})`;
 	getColorScheme(colorRGB);
 }
@@ -85,8 +86,29 @@ function getColorScheme(colorRGB) {
 		dataType: 'jsonp',
 		success: function(scheme) {
 			console.log(scheme);
+			extractColorsFromScheme(scheme);
 		}
 	})
+}
+
+function extractColorsFromScheme(scheme) {
+	const array = Object.values(scheme.colors)
+	const color0 = (array[0]['hex']['value']);
+	const color1 = (array[1]['hex']['value']);
+	const color2 = (array[2]['hex']['value']);
+	const color3 = (array[3]['hex']['value']);
+	const color4 = (array[4]['hex']['value']);
+	const color5 = (array[5]['hex']['value']);
+	displayCSS(color0, color1, color2, color3, color4, color5);
+}
+
+function displayCSS(color0, color1, color2, color3, color4, color5) {
+	$(".color0").css("background-color", `${color0}`);
+	$(".color1").css("background-color", `${color1}`);
+	$(".color2").css("background-color", `${color2}`);
+	$(".color3").css("background-color", `${color3}`);
+	$(".color4").css("background-color", `${color4}`);
+	$(".color5").css("background-color", `${color5}`);
 }
 
 function watchSubmit() {

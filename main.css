@@ -1,29 +1,50 @@
 * {
 	box-sizing: border-box;
-
+	font-family: 'Indie Flower', cursive;
 }
 
 main {
 	background-color: black;
-	text-align: center;
+}
+
+.background-image {
+	background-image: url(https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/paint-palette-1517611331.jpg?crop=0.966xw:1.00xh;0.0176xw,0&resize=768:*);
+	background-repeat: no-repeat;
+	background-size: 1248px 610px;
+	width: 1248px;
+	height: 610px;
+	margin-top: 0;
+}
+
+.title {
+	position: absolute;
+	bottom: 28px;
+	right: 172px;
+}
+
+.tag-line {
+	position: absolute;
+	bottom: 0px;
+	right: 20px;
+}
+
+h1 {
+	font-size: 96px;
+}
+
+h2 {
+	font-size: 48px;
 }
 
 header {
-	background-color: black;
-	color: white;
-	text-align: center;
-
-}
-
-.weather-content {
-	background-color: black;
-	color:white;
+	color: black;
+	text-align: right;
 }
 
 .row {
   max-width: 1000px;
-  padding-left: 20px;
-  padding-right: 20px;
+  /*padding-left: 20px;
+  padding-right: 20px;*/
   margin: 0 auto;
 }
 

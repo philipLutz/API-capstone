@@ -1,44 +1,67 @@
 * {
 	box-sizing: border-box;
 	font-family: 'Indie Flower', cursive;
+	margin-top: 2px;
 }
 
 main {
 	background-color: black;
+	margin-top: 0;
 }
 
 .background-image {
 	background-image: url(https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/paint-palette-1517611331.jpg?crop=0.966xw:1.00xh;0.0176xw,0&resize=768:*);
 	background-repeat: no-repeat;
-	background-size: 1248px 610px;
-	width: 1248px;
-	height: 610px;
+	background-size: 100%;
+	width: 100%;
+	height: 50vw;
 	margin-top: 0;
+	background-color: black;
+	text-align: right;
+	padding-right: 5%;
+	padding-top: 30%;
+	padding-bottom: 25%;
 }
 
 .title {
-	position: absolute;
-	bottom: 28px;
-	right: 172px;
+	margin: 0px;
+	padding-right: 12%;
+	font-size: 8vw;
 }
 
 .tag-line {
-	position: absolute;
-	bottom: 0px;
-	right: 20px;
-}
-
-h1 {
-	font-size: 96px;
-}
-
-h2 {
-	font-size: 48px;
-}
-
-header {
+	margin: 0px;
+	padding-right: 1.5%;
+	font-size: 3.75vw;
 	color: black;
-	text-align: right;
+}
+
+a:link {
+    text-decoration: none;
+    color: black;
+}
+
+a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: black;
+}
+
+a:active {
+    text-decoration: underline;
+    color: black;
+}
+
+form {
+	background-color: black;
+	border-style: none;
+	margin: 0px;
+	text-align: center;
+
 }
 
 .row {
@@ -66,6 +89,7 @@ header {
 
 .box {
 	height: 200px;
+	transition: background-color 3s ease;
 }
 
 .color0 {
@@ -90,14 +114,5 @@ header {
 
 .color5 {
 	background-color: black;
-}
-
-@media only screen and (min-width: 770px) {
-	.col-2 {
-		width: 16%;
-	}
-	.box {
-		height: 400px;
-	}
 }
 

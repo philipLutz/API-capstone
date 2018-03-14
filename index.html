@@ -8,23 +8,41 @@
 	<script <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link href="main.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    <!-- SMOOTH SCROLL -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+    $(function() {
+     $('a[href*=#]:not([href=#])').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+          if (target.length) {
+            $('html,body').animate({
+              scrollTop: target.offset().top
+            }, 1000);
+            return false;
+          }
+        }
+      });
+    });
+    </script>
+    <!-- End of SMOOTH SCROLL -->
 </head>
 <body>
-	<div class="background-image">
+	<div id="page1" class="background-image">
 		<h1 class="title">Picturesque</h1>
-		<h2 class="tag-line">Painting a unqiue aethestic to your day</h2>
+		<h2 class="tag-line"><a class="button1" href="#page2" role="button">Paint a unqiue aethestic to your day</a></h2>
 	</div>
 	
-			<form action="#" class="js-search-form">
-        		<label for="query"></label>
-            	<input type="text" id="js-query-city" placeholder="City (San Diego)" required>
-            	<input type="text" id="js-query-state_country" placeholder="State/Country (CA)" required>
-            	<button type="submit">Search</button>
-         	</form>
-         	<div class="search-location">
-         	
-         	</div>
 	<main>
+		<section id="page2">
+			<form action="#" class="js-search-form">
+    			<label for="query"></label>
+        		<input type="text" id="js-query-city" placeholder="City (San Diego)" required>
+        		<input type="text" id="js-query-state_country" placeholder="State/Country (CA)" required>
+        		<button type="submit">Search</button>
+    		</form>
+    	</section>
 		
 		<section class="color-scheme">
 			<div class="row">
@@ -48,6 +66,9 @@
       			</div>
     		</div>
 		</section>
+
+		<div class="search-location"></div>
+
 		<section class="weather-content">
 			
 		</section>

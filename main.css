@@ -61,8 +61,8 @@ main {
 	background-color: black;
 	color: white;
 	margin: 0;
-	padding-left: 10%;
-	padding-right: 10%;
+	padding-left: 12%;
+	padding-right: 12%;
 	padding-top: 10%;
 	padding-bottom: 5%;
 	text-align: center;
@@ -107,12 +107,19 @@ form {
 	padding-top: 5vw;
 	margin-bottom: 3vw;
 	text-align: center;
-	font-size: 
 }
 
 input {
-	width: 10vw;
-	height: 3vw;
+	width: 15vw;
+	height: 3.5vw;
+	font-size: 1.5vw;
+	border-radius: 1vw;
+}
+
+form button {
+	height: 3.5vw;
+	font-size: 1.5vw;
+	border-radius: 1vw;
 }
 
 .search-location {
@@ -128,12 +135,6 @@ input {
 	text-align: center;
 	margin-top: 10vw;
 	margin-bottom: 20vw;
-}
-
-.weather-content {
-	background-color: black;
-	color: white;
-	text-align: center;
 }
 
 .row {
@@ -188,3 +189,21 @@ input {
 	background-color: black;
 }
 
+.weather-icon img {
+	height: 10vw;
+	width: auto;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+.weather-content {
+	background-color: black;
+	color: white;
+	text-align: center;
+	font-size: 3.5vw;
+}
+
+.WU-logo {
+
+}

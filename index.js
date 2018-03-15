@@ -5,6 +5,7 @@ function getDataFromWU(queryCity, querySC) {
 		success: function(url) {
 			console.log(url);
 			displayWeather(url);
+			displayWeatherIcon(url);
 		}
 	});
 }
@@ -32,14 +33,46 @@ function renderLocationGoogle(results) {
 	createColor(longRound, latRound);
 }
 
-function renderWeather() {
+function displayWeatherIcon(url) {
+	const weatherIconRaw = Object.values(url.current_observation.icon_url);
+	const weatherIconString = weatherIconRaw.toString();
+	const weatherIcon = weatherIconString.replace(/,\s?/g, "");
+
+	$('.weather-icon').html(`<img src="${weatherIcon}" alt="weather icon">`);
 }
 
 function displayWeather(url) {
-	const tempRaw = Object.values(url.current_observation.temperature_string);
+	const tempRaw = Object.values(url.current_observation.feelslike_string);
 	const tempString = tempRaw.toString();
 	const temp = tempString.replace(/,\s?/g, "");
-	$('.weather-content').html(`<div>${temp}</div>`);
+	const conditionsRaw = Object.values(url.current_observation.weather);
+	const conditionsString = conditionsRaw.toString();
+	const conditions = conditionsString.replace(/,\s?/g, "");
+	const precipRaw = Object.values(url.current_observation.precip_today_string);
+	const precipString = precipRaw.toString();
+	const precip = precipString.replace(/,\s?/g, "");
+	const windRaw = Object.values(url.current_observation.wind_gust_mph);
+	const windString = windRaw.toString();
+	const wind = windString.replace(/,\s?/g, "");
+	const windDirRaw = Object.values(url.current_observation.wind_dir);
+	const windDirString = windDirRaw.toString();
+	const windDir = windDirString.replace(/,\s?/g, "");
+	const humidityRaw = Object.values(url.current_observation.relative_humidity);
+	const humidityString = humidityRaw.toString();
+	const humidity = humidityString.replace(/,\s?/g, "");
+	const forecastLinkRaw = Object.values(url.current_observation.forecast_url);
+	const forecastLinkString = forecastLinkRaw.toString();
+	const forecastLink = forecastLinkString.replace(/,\s?/g, "");
+
+	$('.weather-content').html(`
+		<div>${conditions}</div>
+		<div>Feels like : ${temp}</div>
+		<div>Today's Precipitation : ${precip}</div>
+		<div>Wind : Up to ${wind}mph from the ${windDir}</div>
+		<div>Relative Humidity : ${humidity}</div>
+		<div>More details at <a href="${forecastLink}" target="_blank">Wunderground.com</a></div>
+		<img src="http://icons-ak.wxug.com/graphics/wu2/logo_130x80.png" alt="WU logo" class="WU-logo">
+		`);
 }
 
 function createSearchLocation(queryCity, querySC) {
@@ -76,6 +109,7 @@ function createColor(longRound, latRound) {
 	const latNum = (correctSignLat(latRound));
 	const randomNum = (getRandomInt(0, 256));
 	//I could make this more random by making the placement of the numbers in the RGB random
+	//I could also vary the mode (quad, analogic, etc) being sent to API
 	const colorRGB = `rgb(${latNum},${longNum},${randomNum})`;
 	getColorScheme(colorRGB);
 }

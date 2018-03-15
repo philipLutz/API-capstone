@@ -39,7 +39,7 @@ function displayWeather(url) {
 	const tempRaw = Object.values(url.current_observation.temperature_string);
 	const tempString = tempRaw.toString();
 	const temp = tempString.replace(/,\s?/g, "");
-	$('.weather-content').html(`<section>${temp}</section>`);
+	$('.weather-content').html(`<div>${temp}</div>`);
 }
 
 function createSearchLocation(queryCity, querySC) {
@@ -82,7 +82,7 @@ function createColor(longRound, latRound) {
 
 function getColorScheme(colorRGB) {
 	$.ajax({
-		url: `http://thecolorapi.com/scheme?rgb=${colorRGB}&mode=analogic&count=6`,
+		url: `http://thecolorapi.com/scheme?rgb=${colorRGB}&mode=quad&count=6`,
 		dataType: 'jsonp',
 		success: function(scheme) {
 			console.log(scheme);
@@ -104,10 +104,10 @@ function extractColorsFromScheme(scheme) {
 
 function displayCSS(color0, color1, color2, color3, color4, color5) {
 	$(".color0").css("background-color", `${color0}`);
-	$(".color1").css("background-color", `${color1}`);
-	$(".color2").css("background-color", `${color2}`);
-	$(".color3").css("background-color", `${color3}`);
-	$(".color4").css("background-color", `${color4}`);
+	$(".color1").css("background-color", `${color3}`);
+	$(".color2").css("background-color", `${color1}`);
+	$(".color3").css("background-color", `${color4}`);
+	$(".color4").css("background-color", `${color2}`);
 	$(".color5").css("background-color", `${color5}`);
 }
 

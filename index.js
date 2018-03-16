@@ -3,9 +3,11 @@ function getDataFromWU(queryCity, querySC) {
 		url: `http://api.wunderground.com/api/5e8b8ca34238674d/conditions/q/${querySC}/${queryCity}.json`,
 		dataType: 'json',
 		success: function(url) {
+			if(url['current_observation']){
 			console.log(url);
 			displayWeather(url);
 			displayWeatherIcon(url);
+			} else { alert("Error: Invalid location and/or weather information does not exist."); }
 		}
 	});
 }
@@ -64,6 +66,9 @@ function displayWeather(url) {
 	const forecastLinkString = forecastLinkRaw.toString();
 	const forecastLink = forecastLinkString.replace(/,\s?/g, "");
 
+
+	$('.button3').removeAttr('hidden');
+
 	$('.weather-content').html(`
 		<div>${conditions}</div>
 		<div>Feels like : ${temp}</div>
@@ -108,15 +113,36 @@ function createColor(longRound, latRound) {
 	const longNum = (correctSignLong(longRound));
 	const latNum = (correctSignLat(latRound));
 	const randomNum = (getRandomInt(0, 256));
-	//I could make this more random by making the placement of the numbers in the RGB random
-	//I could also vary the mode (quad, analogic, etc) being sent to API
-	const colorRGB = `rgb(${latNum},${longNum},${randomNum})`;
-	getColorScheme(colorRGB);
+	makeMoreRandom(latNum, longNum, randomNum);
 }
 
-function getColorScheme(colorRGB) {
+function makeMoreRandom(latNum, longNum, randomNum) {
+	
+	let inputArray = [latNum, longNum, randomNum];
+
+	function pickRandom(inputArray) {
+		let ranNum = Math.floor(Math.random() * 3);
+		let first = inputArray[ranNum];
+		inputArray.splice(ranNum, 1);
+		let rAgain = Math.floor(Math.random() * 2);
+		let second = inputArray[rAgain];
+		inputArray.splice(rAgain, 1);
+		let third = inputArray[0];
+		let newArray = [first, second, third];
+		return newArray;
+	}
+	const randomizedArray = pickRandom(inputArray)
+	const newFirst = randomizedArray[0];
+	const newSecond = randomizedArray[1];
+	const newThird = randomizedArray[2];
+	const randomizedColor = `rgb(${newFirst},${newSecond},${newThird})`;
+	getColorScheme(randomizedColor);
+
+}
+
+function getColorScheme(randomizedColor) {
 	$.ajax({
-		url: `http://thecolorapi.com/scheme?rgb=${colorRGB}&mode=quad&count=6`,
+		url: `http://thecolorapi.com/scheme?rgb=${randomizedColor}&mode=quad&count=6`,
 		dataType: 'jsonp',
 		success: function(scheme) {
 			console.log(scheme);

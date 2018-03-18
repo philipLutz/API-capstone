@@ -6,11 +6,11 @@ Picturesque is an app that provides the user with current weather conditions and
 
 ## Screenshots
 
-![start of app](https://raw.github.com/philipLutz/Picturesque/master/Picturesque/Screen Shot 2018-03-17 at 6.10.28 PM.png "Start of app")
+![start of app](https://user-images.githubusercontent.com/36082324/37562908-be526e46-2a30-11e8-9860-f7b9dcebfad6.png "Start of app")
 
-![explanation](https://raw.github.com/philipLutz/Picturesque/master/Picturesque/Screen Shot 2018-03-17 at 6.11.27 PM.png "Explanation")
+![explanation](https://user-images.githubusercontent.com/36082324/37562916-f4d9914c-2a30-11e8-9922-827a6d672d72.png "Explanation")
 
-![search input/color scheme](https://raw.github.com/philipLutz/Picturesque/master/Picturesque/Screen Shot 2018-03-17 at 6.11.58 PM.png "Search Input and Color Scheme")
+![search input/color scheme](https://user-images.githubusercontent.com/36082324/37562921-0995f486-2a31-11e8-96e6-a7df327750c2.png "Search Input and Color Scheme")
 
-![weather results](https://raw.github.com/philipLutz/Picturesque/master/Picturesque/Screen Shot 2018-03-17 at 6.12.19 PM.png "Weather Results")
+![weather results](https://user-images.githubusercontent.com/36082324/37562922-1f879e66-2a31-11e8-8ba2-673a9ba18ccd.png "Weather Results")
 

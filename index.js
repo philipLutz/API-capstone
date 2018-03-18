@@ -43,7 +43,7 @@ function displayWeatherIcon(url) {
 	const forecastLinkString = forecastLinkRaw.toString();
 	const forecastLink = forecastLinkString.replace(/,\s?/g, "");
 
-	$('.weather-icon').html(`<a href="${forecastLink}" target="_blank"><img src="${weatherIcon}" alt="weather icon"></a>`);
+	$('.weather-icon').html(`<a href="${forecastLink}" target="_blank" role="link"><img src="${weatherIcon}" alt="weather icon" role="img"></a>`);
 }
 
 function displayWeather(url) {
@@ -78,8 +78,8 @@ function displayWeather(url) {
 		<div>Today's Precipitation : ${precip}</div>
 		<div>Wind : Up to ${wind}mph from the ${windDir}</div>
 		<div>Relative Humidity : ${humidity}</div>
-		<div>More details at <a href="${forecastLink}" target="_blank">Wunderground.com</a></div>
-		<a href="${forecastLink}" target="_blank"><img src="http://icons-ak.wxug.com/graphics/wu2/logo_130x80.png" alt="WU logo" class="WU-logo"></a>
+		<div>More details at <a href="${forecastLink}" target="_blank" role="link">Wunderground.com</a></div>
+		<a href="${forecastLink}" target="_blank" role="link"><img src="http://icons-ak.wxug.com/graphics/wu2/logo_130x80.png" alt="WU logo" class="WU-logo" role="img"></a>
 		`);
 }
 
@@ -117,7 +117,6 @@ function createColor(longRound, latRound) {
 	const latNum = (correctSignLat(latRound));
 	const randomNum = (getRandomInt(0, 256));
 	makeMoreRandom(latNum, longNum, randomNum);
-	//makeRandomMode();
 }
 
 function makeMoreRandom(latNum, longNum, randomNum) {
@@ -142,16 +141,6 @@ function makeMoreRandom(latNum, longNum, randomNum) {
 	const randomizedColor = `rgb(${newFirst},${newSecond},${newThird})`;
 	getColorScheme(randomizedColor);
 }
-
-/*function makeRandomMode() {
-	function returnRandom() {let ranNum = Math.floor(Math.random() * 3);
-	if (ranNum === 0) {return 'monochrome'}
-	else if (ranNum === 1) {return 'analogic'}
-	else {return 'quad'}}
-	const modeInput = returnRandom();
-	getColorScheme(modeInput);
-	console.log(modeInput);
-}*/
 
 function getColorScheme(randomizedColor) {
 	$.ajax({

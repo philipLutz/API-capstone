@@ -29,14 +29,15 @@
     <!-- End of SMOOTH SCROLL -->
 </head>
 <body>
-	<div id="page1" class="background-image">
-		<h1 class="title">Picturesque</h1>
-		<h2 class="tag-line"><a class="button1" href="#page2" role="button">Paint a unqiue aethestic to your day</a></h2>
-	</div>
-	
-	<main>
+	<main role="main" aria-live="assertive">
+		
+		<section id="page1" class="background-image">
+			<h1 class="title" role="heading">Picturesque</h1>
+			<h2 class="tag-line" role="heading"><a class="button1" href="#page2" role="button">Paint a unqiue aethestic to your day</a></h2>
+		</section>
+
 		<section id="page2">
-			<h1>What is Picturesque?</h1>
+			<h1 role="heading">What is Picturesque?</h1>
 			<p>
 				In an effort to bring some color to the monotony of checking a weather app that is usually an endless list of calculated predictions, <b>Picturesque</b> offers a simple, yet novel alternative to let you know what is going on outside and give you an exclusive visual array associated with that place to set the tone for your day.  After searching a location, you will be able to see the weather and a color scheme generated using an original algorithm that incorporates both geographical and random elements to produce a unique RGB value.  
 			</p>
@@ -47,14 +48,14 @@
 			
 			<form action="#" class="js-search-form">
     			<label for="query"></label>
-        		<input type="text" id="js-query-city" placeholder="City (San Diego)" required>
-        		<input type="text" id="js-query-state_country" placeholder="State/Country (CA)" required>
-        		<button type="submit">Search</button>
+        		<input type="text" id="js-query-city" placeholder="City (San Diego)" role="textbox" required>
+        		<input type="text" id="js-query-state_country" placeholder="State/Country (CA)" role="textbox" required>
+        		<button type="submit" role="button">Search</button>
     		</form>
 
-			<div class="search-location"></div>
+			<section class="search-location"></section>
 
-			<div class="row">
+			<section class="row">
       			<div class="col-2">
         			<div class="box color0"></div>
       			</div>
@@ -73,7 +74,7 @@
       			<div class="col-2">
         			<div class="box color5"></div>
       			</div>
-    		</div>
+    		</section>
 
     		<h6><a class="button3" href="#page4" role="button" hidden>and currently the weather is . . .</a></h6>
 

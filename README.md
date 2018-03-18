@@ -2,7 +2,7 @@
 
 ## Summary
 
-Picturesque is an app that provides the user with current weather conditions and uses the searched location information to generate a unique RGB with a related color scheme.  The color scheme provides a novel aesthetic to the app and could be a visual way for the user to adjust their feelings about the day and/or weather.  Though often very informative, some weather apps can be seen as an overwhelming amount of information, and this app concisely provides what many users might want to see while quickly checking the weather.  For users who want more weather information, links to more extensive content are also provided.  If the user incorrectly searches for an area, they will be prompted with an alert, and weather information will not be displayed.  Though, a color scheme will still be generated in the event of an invalid location search because one of the APIs will still return incorrectly associated values in the event of a mismatched or misspelled search.
+Picturesque is an app that provides the user with current weather conditions and uses the searched location information to generate a unique RGB with a related color scheme.  The color scheme provides a novel aesthetic to the app and could be a visual influence of the user's feelings about the day and/or weather.  Though often very informative, some weather apps can be seen as an overwhelming amount of information, and this app concisely provides what many users might want to see while quickly checking the weather.  For users who want more weather information, links to more extensive content are also provided.  If the user incorrectly searches for a location, they will be prompted with an alert, and weather information will not be displayed.  Though, a color scheme may still be generated in the event of an invalid location search because one of the APIs could return incorrectly associated latitude and longitude values from the list of possible location matches.
 
 ## Screenshots
 
@@ -14,3 +14,6 @@ Picturesque is an app that provides the user with current weather conditions and
 
 ![weather results](https://user-images.githubusercontent.com/36082324/37562922-1f879e66-2a31-11e8-8ba2-673a9ba18ccd.png "Weather Results")
 
+## Technology
+
+Picturesque uses HTML, CSS, JavaScript, and jQuery to combine information from Weather Underground, Google Maps, and the Color API.  
